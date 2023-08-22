@@ -1,0 +1,35 @@
+# Write a python program create csv file student.csv(sid,sname,city,contact) using 10 records 
+##(in which 5 records input directly and 5 records take input from user). write records into this file.
+
+
+import csv
+f=open("E:\\22bca02\\python.week5.csv",'w',newline='')
+w=csv.writer(f)
+H=['sid','sname','city','contact']
+w.writerow(H)
+
+#five records input directly.
+
+R=[[1,'om','surat',9632584713],[2,'sai','rajkot',9625874136],[3,'radha','mumbai',8654139745],[4,'ansh','bardoli',9898774159],[5,'raj','mp',9824167490]]
+w.writerows(R)
+
+#five records taken input from user.
+
+l=[]
+for i in range(5):
+    a=int(input("enter student id:"))
+    b=input("enter student name:")
+    c=input("enter city:")
+    d=int(input("enter contact number:"))
+    la=[a,b,c,d]
+    l.append(la)
+w.writerows(l)
+f.close()
+
+#Read this file using csv module and print it. 
+
+from csv import DictReader
+p=open("E:\\22bca02\\python\\week5.csv",'r',newline='')
+s=DictReader(p)
+for row in s:
+    print(row)
